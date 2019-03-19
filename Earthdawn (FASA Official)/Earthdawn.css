@@ -4,6 +4,8 @@
 input {
     height: 		initial;
 }
+
+
 label {
     display:		inline-block;
     font-size:		inherit;
