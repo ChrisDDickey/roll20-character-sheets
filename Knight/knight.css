@@ -477,7 +477,19 @@ div.charsheet > div.content input[type=hidden].armureLegendeListe[value=wizard] 
 div.charsheet > div.content input[type=hidden].armureLegendeListe[value=wizard] ~ div .MALWizard {
   display: flex;
 }
+div.charsheet > div.content input[type=hidden].tabEgide[value="0"] ~ div div.egide {
+  display: none;
+}
 div.charsheet > div.content input[type=hidden].tabResilience[value="0"] ~ div div.resilience {
+  display: none;
+}
+div.charsheet > div.content input[type=hidden].tabArmureLegende[value="0"] ~ div label.armureLegende {
+  display: none;
+}
+div.charsheet > div.content input[type=hidden].tabArmureLegende[value="0"] ~ div div.MAL {
+  display: none;
+}
+div.charsheet > div.content input[type=hidden].tabArmureLegende[value=druid] ~ div div.MALDruidCompanions {
   display: none;
 }
 div.charsheet > div.content input[type=hidden].capacitesFanMade[value="0"] ~ div div.capacitesFanMade {
@@ -10845,7 +10857,7 @@ div.charsheet > div.content div.tabArmure div.notes div.repcontainer div.repitem
 div.charsheet > div.content div.tabArmure div.notes div.autoex {
   border-top: 1px solid RGB(93, 111, 179);
 }
-div.charsheet > div.content div.tabArmure input[type=hidden].druidCompanions[value=aucun] ~ div.DCLion, div.charsheet > div.content div.tabArmure input[type=hidden].druidCompanions[value=aucun] ~ div.DCWolf, div.charsheet > div.content div.tabArmure input[type=hidden].druidCompanions[value=aucun] ~ div.DCCrow {
+div.charsheet > div.content div.tabArmure input[type=hidden].druidCompanions[value=aucun] ~ div.DCLion, div.charsheet > div.content div.tabArmure input[type=hidden].druidCompanions[value=aucun] ~ div.DCWolf, div.charsheet > div.content div.tabArmure input[type=hidden].druidCompanions[value=aucun] ~ div.DCCrow, div.charsheet > div.content div.tabArmure input[type=hidden].druidCompanions[value=aucun] ~ h1.titre {
   display: none;
 }
 div.charsheet > div.content div.tabArmure input[type=hidden].druidCompanions[value=lion] ~ div.DCWolf, div.charsheet > div.content div.tabArmure input[type=hidden].druidCompanions[value=lion] ~ div.DCCrow {
@@ -13830,7 +13842,6 @@ div.charsheet > div.content div.tabArmure div.MALDruidCompanions {
       - hasButton : s'il a un bouton (true/false).
       - hasButtonActivate : s'il s'agit de boutons "Activé" (true / false)
   */
-  display: flex;
   width: 100%;
   flex-wrap: wrap;
 }
@@ -27896,7 +27907,7 @@ div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.ligne
 }
 div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.ligneTitre div.firstCol {
   background: RGB(213, 215, 237);
-  width: calc(100% - (121px * 3) - 159px);
+  width: calc(100% - (121px * 3) - 159px - 120px);
 }
 div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.ligneTitre div.firstCol span {
   width: 100%;
@@ -27907,6 +27918,14 @@ div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.ligne
   border-left: 1px solid RGB(93, 111, 179);
 }
 div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.ligneTitre div.midCol span {
+  width: 100%;
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.ligneTitre div.midColL {
+  background: RGB(213, 215, 237);
+  width: calc(241px - 1px);
+  border-left: 1px solid RGB(93, 111, 179);
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.ligneTitre div.midColL span {
   width: 100%;
 }
 div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.ligneTitre div.lastCol {
@@ -28058,15 +28077,65 @@ div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armes
   width: 100%;
   justify-content: space-between;
   border-top: 1px solid RGB(93, 111, 179);
+  /*
+  ///PARAMETRES EXISTANTS\\\
+  - label
+      - width : Width du label
+      - height : height du label
+
+  - span 
+      - color : La color
+      - background : Le background
+      - border : S'il y a une bordure (true/false)
+      - width : Width du span
+      - height : height du height
+
+  - shadow : s'il y a une ombre (true/false)
+  */
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne label.fakeButton {
+  position: relative;
+  width: 120px;
+  height: 28px;
+  font-size: 14px;
+  align-self: center;
+  font-size: 12px;
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne label.fakeButton input[type=checkbox],
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne label.fakeButton input[type=radio] {
+  position: absolute;
+  width: 100%;
+  height: 28px;
+  opacity: 0;
+  z-index: 9;
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne label.fakeButton span {
+  display: flex;
+  height: 28px;
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne label.fakeButton span::before {
+  display: flex;
+  width: 100%;
+  line-height: 28px;
+  content: attr(title);
+  background: RGB(93, 111, 179);
+  color: white;
+  justify-content: center;
 }
 div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.firstCol {
   background: RGB(213, 215, 237);
-  width: calc(100% - (121px * 3) - 159px);
+  width: calc(100% - (121px * 3) - 159px - 120px);
 }
 div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.midCol {
   justify-content: space-between;
   background: RGB(213, 215, 237);
   width: calc(121px - 1px);
+  border-left: 1px solid RGB(93, 111, 179);
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.midColL {
+  justify-content: space-between;
+  background: RGB(213, 215, 237);
+  width: calc(241px - 1px);
   border-left: 1px solid RGB(93, 111, 179);
 }
 div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.lastCol {
@@ -28085,6 +28154,10 @@ div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armes
   border: 0px;
   padding-left: 4px;
   min-width: 0px;
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armeDegats div,
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armeViolence div {
+  width: 120px;
 }
 div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armeDegats input[type=number],
 div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armeViolence input[type=number] {
@@ -28112,6 +28185,19 @@ div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armes
   justify-content: center;
   font-size: 14px;
   font-weight: bold;
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armeDegats label.fakeButton span,
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armeViolence label.fakeButton span {
+  border-left: 1px solid black;
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armeDegats label.fakeButton:hover span::before,
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armeViolence label.fakeButton:hover span::before {
+  box-shadow: 0px 0px 7px 0px black inset;
+}
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armeDegats input[type=checkbox]:not(:checked) ~ span::before,
+div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armeViolence input[type=checkbox]:not(:checked) ~ span::before {
+  background: RGB(213, 215, 237);
+  color: black;
 }
 div.charsheet > div.content div.tabCombat div.armesPNJ div.subTabMelee div.armesListe div.ligne div.armePortee select {
   width: 100%;
@@ -33805,6 +33891,12 @@ div.charsheet > div.content div.tabHeroisme div.capacites .repcontainer .repitem
 }
 div.charsheet > div.content div.tabHeroisme div.capacites .repcontainer .repitem:not(:first-of-type) {
   border-top: 5px double RGB(93, 111, 179);
+}
+div.charsheet > div.content div.tabHeroisme input[type=hidden].cartes[value="0"] ~ div div.cartes {
+  display: none;
+}
+div.charsheet > div.content div.tabHeroisme input[type=hidden].capacites[value="0"] ~ div div.capacites {
+  display: none;
 }
 div.charsheet > div.content div.tabVehicule {
   justify-content: space-between;

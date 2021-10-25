@@ -410,7 +410,7 @@
             <input type="number" class="sheet-number"name="attr_temp-deception" value="0" />
             <input type="number" class="sheet-number"name="attr_mod-deception" value="0" />
             <input type="number" class="sheet-number" name="attr_base-deception" value="@{charisma} + @{charisma} + @{perception}+ @{luck}" disabled="true" />
-            <input type="text" class="sheet-number_skill" name="attr_basetext-deception" value="PET + CHA + CHA" readonly />
+            <input type="text" class="sheet-number_skill" name="attr_basetext-deception" value="PER + CHA + CHA" readonly />
         </div>
         <div>
             <button class="sheet-skill_button" type='roll' name="attr_roll-detection" value='/em rolls Detection skill [[floor([[@{detection}]] + ?{modifier} - [[1d100]])]]' /></button>
@@ -491,7 +491,7 @@
             <input type="number" class="sheet-number"name="attr_temp-investigation" value="0" />
             <input type="number" class="sheet-number"name="attr_mod-investigation" value="0" />
             <input type="number" class="sheet-number" name="attr_base-investigation" value="@{perception} + @{charisma} + @{intelligence} + @{luck}" disabled="true" />
-            <input type="text" class="sheet-number_skill" name="attr_basetext-investigation" value="PET + CHA + INT" readonly />
+            <input type="text" class="sheet-number_skill" name="attr_basetext-investigation" value="PER + CHA + INT" readonly />
         </div>
         <div>
             <button class="sheet-skill_button" type='roll' name="attr_roll-lore" value='/em rolls Lore skill [[floor([[@{lore}]] + ?{modifier} - [[1d100]])]]' /></button>
@@ -638,7 +638,7 @@
                     <input type="checkbox" name="attr_cripple_left_leg" value="1" class="sheet-bigcheck"/><span></span>
                 </div>
                 <div>
-                    <input type="text" class="sheet-text_damage" value="Groin" readonly style="width:15%"/>
+                    <input type="text" class="sheet-text_damage" value="Groin Res" readonly style="width:15%"/>
                     <input type="text" class="sheet-text_damage" value="Current" readonly style="width:15%"/>
                     <input type="number" class="sheet-number" name="attr_cripple_groin-current" value="0" />
                     <input type="text" class="sheet-text_damage" value="Max" readonly style="width:15%"/>
@@ -856,7 +856,6 @@
         </div>    
         </div>
         </div>
-    </div> 
     
     <h3 style="width:98%">Weapons</h3>
     <div class='sheet-center'>
@@ -1023,7 +1022,7 @@
         </div>
 </div>
 </div>
-
+</div>
 <div class="sheet-tab-content sheet-tab5">
     <h3 style="width:99%">Inventory</h3>
     <div class="sheet-center" style="width:95%">
